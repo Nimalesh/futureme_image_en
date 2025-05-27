@@ -8,7 +8,6 @@ This repository enables you to run StyleCLIP (text-based editing of faces) **loc
 
 ```sh
 git clone https://github.com/Nimalesh/StyleCLIP.git
-# Place all scripts and requirements.txt from this repo into the same folder.
 python styleclip_setup.py
 ```
 installs requirements from requirements.txt

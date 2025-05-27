@@ -1,7 +1,6 @@
 # Encoder Pipeline: StyleGAN-Encoder + Encoder4Editing
 
-A command-line workflow for facial image alignment and inversion using [StyleGAN-Encoder](https://github.com/Nimalesh/stylegan-encoder) and [encoder4editing](https://github.com/Nimalesh/encoder4editing), ready for use in VS Code or any terminal.  
-This mirrors a Colab workflow, but is easy to run and reproduce anywhere.
+A command-line workflow for facial image alignment and inversion using [StyleGAN-Encoder](https://github.com/Nimalesh/stylegan-encoder) and [encoder4editing](https://github.com/Nimalesh/encoder4editing), ready for use in VS Code or any terminal.
 
 
 ## Setup
@@ -31,11 +30,9 @@ python setup_encoder4editing.py
 
 These scripts:
 
-Create necessary folders in both repos.
-
-Download pretrained model weights and the Dlib shape predictor.
-
-Install the ninja build tool if missing.
+1. Create necessary folders in both repos.
+2. Download pretrained model weights and the Dlib shape predictor.
+3. Install the ninja build tool if missing.
 
 ### Run
 
