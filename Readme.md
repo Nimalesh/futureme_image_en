@@ -1,52 +1,29 @@
-# Encoder Pipeline: StyleGAN-Encoder + Encoder4Editing
-
-A command-line workflow for facial image alignment and inversion using [StyleGAN-Encoder](https://github.com/Nimalesh/stylegan-encoder) and [encoder4editing](https://github.com/Nimalesh/encoder4editing), ready for use in VS Code or any terminal.
-
-
-## Setup
-
-### 1. Clone Repositories
-
+# 1. Clone your repo
 ```sh
-git clone https://github.com/Nimalesh/stylegan-encoder.git
-git clone https://github.com/Nimalesh/encoder4editing.git
-```
-### 2. Create a Virtual env
-
-```sh
-python -m venv venv
-# On Windows:
-venv\Scripts\activate
-# On Mac/Linux:
-source venv/bin/activate
+!git clone https://github.com/krisu-ai/future-me.git
+%cd future-me
 ```
 
-### Setup
-
+# 2. Install requirements (optional but recommended)
 ```sh
-python setup_stylegan_encoder.py
-python setup_encoder4editing.py
+!pip install -r requirements.txt
 ```
 
-These scripts:
-
-1. Create necessary folders in both repos.
-2. Download pretrained model weights and the Dlib shape predictor.
-3. Install the ninja build tool if missing.
-
-### Run
-
+# 3. Upload your image
 ```sh
-python run_full_pipeline.py --image_path pic_01.png
+from google.colab import files
+uploaded = files.upload()
 ```
-
-<!-- This will:
-
-Copy your image to stylegan-encoder/raw_images/
-
-Align the face with StyleGAN-Encoder
-
-Copy the aligned image to encoder4editing/input/
-
-Run encoder4editing inversion -->
-
+# 4. Run setups and pipeline!
+```sh
+!python setup_stylegan_encoder.py
+!python setup_encoder4editing.py
+```
+# 5. (Assume the uploaded image is named pic.png)
+```sh
+!python run_full_pipeline.py --image_path pic.png
+```
+# 6. List outputs
+```sh
+!ls -lh encoder4editing/outputs/inversion/
+```

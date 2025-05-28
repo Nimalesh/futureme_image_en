@@ -9,11 +9,11 @@ def main():
     parser.add_argument('--image_path', type=str, required=True, help='Path to the input image')
     args = parser.parse_args()
     image_name = os.path.basename(args.image_path)
-    
+
     # Copy to stylegan-encoder/raw_images
-    raw_image_path = os.path.join('stylegan-encoder', 'raw_images', image_name)
-    shutil.copy(args.image_path, raw_image_path)
-    print(f"Copied {args.image_path} to {raw_image_path}")
+    sg_raw_path = os.path.join('stylegan-encoder', 'raw_images', image_name)
+    shutil.copy(args.image_path, sg_raw_path)
+    print(f"Copied {args.image_path} to {sg_raw_path}")
 
     # Align images
     subprocess.run([
