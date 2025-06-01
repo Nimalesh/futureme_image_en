@@ -3,6 +3,7 @@ import subprocess
 import argparse
 import shutil
 import sys
+import glob
 
 def main():
     parser = argparse.ArgumentParser()
@@ -21,9 +22,17 @@ def main():
     ], cwd='stylegan-encoder')
     print("Alignment complete.")
 
-    # Copy aligned image to encoder4editing/input/
-    aligned_img_path = os.path.join('stylegan-encoder', 'aligned_images', image_name)
-    encoder_input_path = os.path.join('encoder4editing', 'input', image_name)
+    # Find the aligned image(s)
+    image_name_wo_ext = os.path.splitext(image_name)[0]
+    aligned_img_pattern = os.path.join('stylegan-encoder', 'aligned_images', f"{image_name_wo_ext}_*.png")
+    aligned_files = glob.glob(aligned_img_pattern)
+
+    if not aligned_files:
+        print(f"No aligned images found for {image_name}")
+        sys.exit(1)
+
+    aligned_img_path = aligned_files[0]  # Use the first aligned face found
+    encoder_input_path = os.path.join('encoder4editing', 'input', os.path.basename(aligned_img_path))
     shutil.copy(aligned_img_path, encoder_input_path)
     print(f"Copied aligned image to {encoder_input_path}")
 
